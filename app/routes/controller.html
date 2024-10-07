@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Controller</title>
+
+    <link rel="stylesheet" href="/css/controller.css">
+    <link rel="stylesheet" href="/css/utils.css">
+    <link rel="stylesheet" href="/font/stylesheet.css">
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script type="module">
+        import Controller from "/js/controller/controller.js";
+        let started = false;
+
+        document.addEventListener("keydown", async (event) => {
+            if (event.key === "Enter" && !started) {
+                started = true;
+                await startController();
+            }
+        })
+
+        async function startController() {
+            const controller = new Controller();
+            await controller.init();
+            await controller.startGame();
+        }
+    </script>
+</head>
+<body>
+    <main>
+        <div class="screen start-screen">
+
+            <div class="logo-wrapper">
+                <div class="logo">
+                    GRF
+                </div>
+            </div>
+
+            <h1>
+                Herzlich Willkommen<br>
+                beim Graphische Rundfunk (GRF)
+            </h1>
+
+            <section>
+                <div>
+                    <p>
+                        Du bist <span class="bold">Regiesseur:in</span> der Frühstückssendung „<span class="bold">Servus Graphische</span>“. In der Sendung wird eine Moderatorin die Zuschauer:innen begrüßen, ein Interview führen und den Wetterbericht ansagen.
+                    </p>
+
+                    <p>
+                        Die Sendung ist <span class="bold">LIVE</span>. Dir stehen <span class="bold">drei Kameras</span> zur Verfügung, zwischen denen du wechseln kannst. Wähle immer <span class="bold">die beste Kameraeinstellung</span>, um so viele Zuschauer:innen wie möglich anzuziehen. Achte dabei auf folgende Dinge:
+                    </p>
+                </div>
+
+                <div>
+                    <p>
+                        <span class="bold">1. Motiv</span><br>
+                        Wird im Bild die Person gezeigt, die gerade spricht?
+                    </p>
+
+                    <p>
+                        <span class="bold">2. Bewegung</span><br>
+                        Ist die Kameraführung stabil und nicht verwackelt?
+                    </p>
+
+                    <p>
+                        <span class="bold">3. Bildsignal</span><br>
+                        Ist die Verbindung zur Kamera stabil?
+                    </p>
+                </div>
+            </section>
+
+            <p>Wenn du viele Zuschauer:innen generierst, wirst du vom Programmdirektor befördert. Viel Erfolg!</p>
+        </div>
+
+        <div class="screen game-screen" id="game-screen">
+            <div id="cameras">
+                <span id="countdown"></span>
+            </div>
+
+            <aside>
+                <h1>Statistik</h1>
+
+                <section>
+                    <h2>Verbleibende Sendezeit</h2>
+                    <p id="timeRemaining">02:00:00</p>
+                </section>
+
+                <section>
+                    <h2>Aktive Kamera</h2>
+                    <p id="cameraId">1</p>
+                </section>
+
+                <section>
+                    <h2>Marktanteil</h2>
+                    <p>43,89%</p>
+                </section>
+
+                <section>
+                    <h2>Signalstärke</h2>
+                    <p>Gut</p>
+                </section>
+
+                <section>
+                    <h2>Meldungen</h2>
+                    <p>Keine Fehlermeldungen</p>
+                </section>
+
+
+                <div class="live-time">
+                    <span>LIVE</span>
+                    <p id="timePassed">02:00:00</p>
+                </div>
+
+            </aside>
+
+
+        </div>
+
+        <div class="screen end-screen">
+            <section>
+
+                <div class="logo-wrapper">
+                    <div class="logo">
+                        GRF
+                    </div>
+                </div>
+
+                <h2 id="points">300.000</h2>
+                <h3>Zuschauer:innen erreicht.</h3>
+            </section>
+        </div>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+video {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+video.live {
+    border: 0.3vw solid red;
+}
+
+#videoId {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1;
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: normal;
+    color: white;
+    font-size: 5vw;
+    aspect-ratio: 1;
+    height: 7vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#videoId.cam1 {
+    background-color: #1A31FF;
+}
+
+#videoId.cam2 {
+    background-color: #4CC12E;
+}
+
+#videoId.cam3 {
+    background-color: #FFBF1A;
+}

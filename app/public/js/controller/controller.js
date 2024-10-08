@@ -118,7 +118,8 @@ class Controller {
         this.socket.emit("restartGame");
         await this.stopAllCams();
         await this.restartAllCams();
-        window.location.reload();
+
+        window.location.href = window.location.href + "?rand=" + Math.random
     }
 
     async fetchCameras() {

@@ -14,6 +14,7 @@ class Controller {
 
         this.socket.on("newHighscore", (score) => {
             this.highscore = score;
+            document.getElementById("highscore").innerHTML = "Highscore: " + this.highscore
             console.log("New highscore: " + score);
         });
     }

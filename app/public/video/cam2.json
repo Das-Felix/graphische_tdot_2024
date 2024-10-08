@@ -2,13 +2,43 @@
   "scoreList": [
     {
       "from": 0,
-      "to": 5,
-      "points": 100
+      "to": 13,
+      "points": 150
     },
     {
-      "from": 0,
-      "to": 5,
-      "points": 100
+      "from": 13,
+      "to": 33,
+      "points": 50
+    },
+    {
+      "from": 33,
+      "to": 50,
+      "points": 150
+    },
+    {
+      "from": 50,
+      "to": 67,
+      "points": -50
+    },
+    {
+      "from": 67,
+      "to": 73,
+      "points": 50
+    },
+    {
+      "from": 73,
+      "to": 88,
+      "points": 150
+    },
+    {
+      "from": 88,
+      "to": 120,
+      "points": -50
+    },
+    {
+      "from": 120,
+      "to": 125,
+      "points": 150
     }
   ],
   "duration": 125

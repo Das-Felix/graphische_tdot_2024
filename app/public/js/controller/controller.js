@@ -14,12 +14,13 @@ class Controller {
 
         this.socket.on("newHighscore", (score) => {
             this.highscore = score;
-            document.getElementById("highscore").innerHTML = "Highscore: " + this.highscore
+            document.getElementById("highscore").innerHTML = "Highscore: " + this.formatPoints(this.highscore)
             console.log("New highscore: " + score);
         });
     }
 
     async init() {
+        console.log("Fetching cameras");
         await this.fetchCameras();
 
         listenForInputs();
@@ -53,6 +54,7 @@ class Controller {
             return;
         }
 
+        console.log("Starting game");
         this.startScreenElem.style.display = "none";
         this.endScreenElem.style.display = "none";
 
@@ -105,21 +107,20 @@ class Controller {
 
     async restartGame() {
         //Reset all values so that startGame can be called again
-        this.points = 0;
-        this.gameState = "menu";
-        this.timePassedElem.innerHTML = "00:00:00";
-        this.timeRemainingElem.innerHTML = "00:00:00";
-        this.startScreenElem.style.display = "block";
-        this.endScreenElem.style.display = "none";
-
-        this.camerasElem.classList.remove("running");
-        this.cameras.forEach(cam => cam.restart());
-
-        this.socket.emit("restartGame");
-        await this.stopAllCams();
-        await this.restartAllCams();
-
-        window.location.href = window.location.href + "?rand=" + Math.random
+        // this.points = 0;
+        // this.gameState = "menu";
+        // this.timePassedElem.innerHTML = "00:00:00";
+        // this.timeRemainingElem.innerHTML = "00:00:00";
+        // this.startScreenElem.style.display = "block";
+        // this.endScreenElem.style.display = "none";
+        //
+        // this.camerasElem.classList.remove("running");
+        // this.cameras.forEach(cam => cam.restart());
+        //
+        // this.socket.emit("restartGame");
+        // await this.stopAllCams();
+        // await this.restartAllCams();
+        window.location.replace(window.location.href);
     }
 
     async fetchCameras() {

@@ -23,6 +23,7 @@
         })
 
         async function startController() {
+            console.log("Starting controller");
             const controller = new Controller();
             await controller.init();
             await controller.startGame();
@@ -58,17 +59,17 @@
                 <div>
                     <p>
                         <span class="bold">1. Motiv</span><br>
-                        Wird im Bild die Person gezeigt, die gerade spricht?
+                        Wähle die Kamera, welche die sprechende Person zeigt.
                     </p>
 
                     <p>
-                        <span class="bold">2. Bewegung</span><br>
-                        Ist die Kameraführung stabil und nicht verwackelt?
+                        <span class="bold">2. Bildsignal</span><br>
+                        Vermeide Einstellungen mit schlechter Übertragunsqualität und Bildfehlern.
                     </p>
 
                     <p>
-                        <span class="bold">3. Bildsignal</span><br>
-                        Ist die Verbindung zur Kamera stabil?
+                        <span class="bold">3. Unterhaltung</span><br>
+                        Wechsle spätestens alle 10 Sekunden die Kamera, um die Zuschauenden bei Laune zu behalten.
                     </p>
                 </div>
             </section>

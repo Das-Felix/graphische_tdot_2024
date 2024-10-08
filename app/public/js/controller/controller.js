@@ -81,6 +81,9 @@ class Controller {
                 this.stopAllCams();
                 console.log("Game ended");
                 this.points = (this.points * 1.2934593).toFixed(0);
+                if(this.points < 0) {
+                    this.points = 0;
+                }
                 this.socket.emit("submitScore", this.points);
                 console.log("Points: " + this.points);
                 this.endScreenElem.style.display = "block";

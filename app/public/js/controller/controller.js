@@ -50,6 +50,14 @@ class Controller {
         await this.stopAllCams();
         await this.restartAllCams();
         await this.stopAllCams();
+
+        document.addEventListener("keydown", event => {
+            if(event.key === "r") {
+                this.stopAllCams();
+                this.restartAllCams();
+                window.location.replace(window.location.href);
+            }
+        });
     }
 
     async startGame() {

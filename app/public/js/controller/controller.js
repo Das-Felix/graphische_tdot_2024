@@ -114,6 +114,7 @@ class Controller {
         this.socket.emit("restartGame");
         await this.stopAllCams();
         await this.restartAllCams();
+        window.location.reload();
     }
 
     async fetchCameras() {

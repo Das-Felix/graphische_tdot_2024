@@ -19,6 +19,7 @@ export class Camera {
     }
 
     restart() {
+        this.video.pause();
         this.video.currentTime = 0;
     }
 

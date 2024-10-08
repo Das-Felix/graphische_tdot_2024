@@ -35,7 +35,7 @@ export function listenForInputs() {
 
         const confirmKeys = ["Insert", "End", "ArrowLeft", "Home"]
 
-        if(event.key === "Enter") {
+        if(confirmKeys.includes(event.key)) {
             document.dispatchEvent(new CustomEvent("confirmPressed"));
         }
     });

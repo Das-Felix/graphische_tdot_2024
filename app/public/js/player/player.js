@@ -11,6 +11,7 @@ function initPlayer() {
 
     document.body.innerHTML = "";
     let video = document.createElement("video");
+    video.muted = true;
     document.body.appendChild(video);
     video.src = "/video/cam" + cam + ".mp4";
 
@@ -24,11 +25,13 @@ function initPlayer() {
 
     socket.on("startAllCams", () => {
         video.play();
+        video.classList.add("active");
     });
 
     socket.on("stopAllCams", () => {
         console.log("Stopping all cams");
         video.pause();
+        video.classList.remove("active");
     });
 
     socket.on("restartAllCams", () => {

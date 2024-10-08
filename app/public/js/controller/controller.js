@@ -46,6 +46,10 @@ class Controller {
         this.cameraIdElem = document.getElementById("cameraId");
         this.startScreenElem = document.querySelector(".start-screen");
         this.endScreenElem = document.querySelector(".end-screen");
+
+        await this.stopAllCams();
+        await this.restartAllCams();
+        await this.stopAllCams();
     }
 
     async startGame() {

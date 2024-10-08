@@ -54,6 +54,8 @@ class Controller {
             return;
         }
 
+        await this.restartAllCams();
+
         console.log("Starting game");
         this.startScreenElem.style.display = "none";
         this.endScreenElem.style.display = "none";
@@ -75,12 +77,12 @@ class Controller {
         let totalTime = this.cameras[0].metadata.duration * 1000 / SCORE_INTERVAL;
         let t = 0;
 
-        let interval = setInterval(() => {
+        let interval = setInterval(async () => {
 
             if(t >= totalTime) {
                 clearInterval(interval);
                 this.gameState = "end";
-                this.stopAllCams();
+                await this.stopAllCams();
                 console.log("Game ended");
                 this.points = (this.points * 1.2934593).toFixed(0);
                 if(this.points < 0) {
